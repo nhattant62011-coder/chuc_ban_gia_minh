@@ -145,8 +145,14 @@ button:hover {
 }
 
 @keyframes chop {
-    from {opacity: 0.2; transform: scale(0.5);}
-    to {opacity: 1; transform: scale(1.5);}
+    from {
+        opacity: 0.2;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.5);
+    }
 }
 
 footer {
@@ -161,7 +167,6 @@ footer {
 <body>
 
 <div class="container">
-
 <div class="content">
 
     <div class="heart">💗</div>
@@ -222,6 +227,17 @@ footer {
         <h2>Tôi luôn trân trọng tình bạn này! ❤️</h2>
     </div>
 
+    <footer>
+        Made with ❤️ dành riêng cho bạn thân
+        <br><br>
+        From: Người bạn luôn quý mến bạn 🌸
+    </footer>
+
+</div>
+</div>
+
+<script>
+
 // LỜI NHẮN NGẪU NHIÊN
 let ds = [
     "Bạn không cần hoàn hảo để trở nên tuyệt vời! 💗",
@@ -249,21 +265,6 @@ function moThu() {
         x.style.display = "none";
     } else {
         x.style.display = "block";
-    }
-}
-
-// NHẠC
-let dangPhat = false;
-
-function batNhac() {
-    let nhac = document.getElementById("nhac");
-
-    if (dangPhat) {
-        nhac.pause();
-        dangPhat = false;
-    } else {
-        nhac.play();
-        dangPhat = true;
     }
 }
 
