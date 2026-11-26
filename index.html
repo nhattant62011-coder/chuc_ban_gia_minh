@@ -4,320 +4,126 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gửi Bạn Thân 💗</title>
-
+<title>Gửi Bạn Thân ❤️</title>
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: Arial, sans-serif;
-    color: white;
-    min-height: 100vh;
-    overflow-x: hidden;
-    background: linear-gradient(-45deg,
-        #ff9acb, #c084fc, #818cf8, #f9a8d4);
-    background-size: 400% 400%;
-    animation: nen 12s ease infinite;
-}
-
-@keyframes nen {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-.container {
+    margin: 0;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 35px 15px;
-    position: relative;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ffb6d9, #c9a7ff);
+    overflow: hidden;
+    text-align: center;
+}
+
+.card {
+    background: white;
+    padding: 35px 25px;
+    border-radius: 25px;
+    width: 320px;
+    box-shadow: 0 10px 30px #a45a9b55;
     z-index: 2;
 }
 
-.content {
-    width: 100%;
-    max-width: 750px;
-    padding: 40px 25px;
-    text-align: center;
-    border-radius: 30px;
-    background: rgba(255,255,255,0.18);
-    backdrop-filter: blur(15px);
-    border: 2px solid rgba(255,255,255,0.5);
-    box-shadow: 0 0 40px rgba(255,255,255,0.3);
-    animation: hien 1.5s ease;
-}
-
-@keyframes hien {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.heart {
-    font-size: 75px;
-    animation: tim 1.2s infinite alternate;
-}
-
-@keyframes tim {
-    to { transform: scale(1.2); }
-}
-
 h1 {
-    font-size: clamp(32px, 7vw, 58px);
-    margin: 20px 0;
-    text-shadow: 0 0 20px #ff4da6;
-}
-
-h2 {
-    margin: 20px 0;
-    color: #fff0f8;
+    color: #ff4f9a;
 }
 
 p {
+    color: #75506c;
     font-size: 18px;
-    line-height: 1.8;
-    margin: 15px 0;
+    line-height: 1.7;
+}
+
+.heart {
+    font-size: 55px;
+    animation: beat 1s infinite;
 }
 
 button {
-    padding: 15px 25px;
-    margin: 10px 5px;
-    border: none;
-    border-radius: 30px;
-    background: linear-gradient(90deg, #ff4da6, #a855f7);
+    background: #ff69a6;
     color: white;
-    font-size: 16px;
-    font-weight: bold;
+    border: none;
+    padding: 13px 22px;
+    border-radius: 30px;
+    font-size: 17px;
     cursor: pointer;
-    box-shadow: 0 0 20px #ff80bf;
-    transition: 0.3s;
 }
 
 button:hover {
-    transform: scale(1.08);
-    box-shadow: 0 0 35px white;
+    background: #e83c86;
 }
 
-.message {
-    display: none;
-    margin-top: 25px;
-    padding: 25px;
-    border-radius: 20px;
-    background: rgba(255,255,255,0.2);
-    border: 1px solid rgba(255,255,255,0.4);
-    animation: hien 0.8s ease;
+#message {
+    color: #e83c86;
+    font-weight: bold;
 }
 
-.flower {
-    position: fixed;
-    top: -40px;
-    pointer-events: none;
-    z-index: 1;
-    animation: roi linear forwards;
+.floating {
+    position: absolute;
+    bottom: -30px;
+    animation: fly 6s linear infinite;
+    font-size: 25px;
 }
 
-@keyframes roi {
+@keyframes beat {
+    50% { transform: scale(1.2); }
+}
+
+@keyframes fly {
     to {
-        transform: translateY(110vh) rotate(720deg);
+        transform: translateY(-110vh) rotate(360deg);
         opacity: 0;
     }
 }
-
-.stars {
-    position: fixed;
-    width: 5px;
-    height: 5px;
-    background: white;
-    border-radius: 50%;
-    box-shadow: 0 0 12px white;
-    animation: chop 2s infinite alternate;
-    pointer-events: none;
-    z-index: 1;
-}
-
-@keyframes chop {
-    from {
-        opacity: 0.2;
-        transform: scale(0.5);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1.5);
-    }
-}
-
-footer {
-    margin-top: 30px;
-    font-size: 15px;
-}
-
 </style>
 </head>
 
 <body>
 
-<div class="container">
-<div class="content">
+<div class="card">
+    <div class="heart">❤️</div>
 
-    <div class="heart">💗</div>
-
-    <h1>HEY, BEST FRIEND!</h1>
-
-    <h2>Gửi người bạn thân đáng quý của tôi 🌷</h2>
+    <h1>Gửi bạn thân của tôi!</h1>
 
     <p>
-        Có thể hôm nay không phải là một ngày hoàn hảo,
-        nhưng mong rằng ngày mai sẽ mang đến cho bạn
-        thật nhiều điều tốt đẹp.
+        Này người bạn đặc biệt! 🥰<br>
+        Mong bạn luôn vui vẻ,<br>
+        luôn mỉm cười mỗi ngày.<br>
+        Đừng buồn vì những chuyện không vui nhé!<br>
+        Bạn xứng đáng với những điều tốt đẹp nhất.
     </p>
 
-    <p>
-        Hãy luôn mỉm cười nhé!
-        Bạn xứng đáng nhận được những điều tử tế,
-        những niềm vui và thật nhiều yêu thương.
-    </p>
-
-    <button onclick="loiChuc()">
-        💌 Một lời nhắn dành cho bạn
+    <button onclick="showMessage()">
+        Nhấn vào đây nhé 💌
     </button>
 
-    <button onclick="moThu()">
-        🎁 Mở món quà bí mật
-    </button>
-
-    <div class="message" id="loichuc">
-        <h2>💖 Một chút động lực</h2>
-        <p id="noidung"></p>
-    </div>
-
-    <div class="message" id="hopthu">
-        <h2>💌 Gửi bạn thân!</h2>
-
-        <p>
-            Cảm ơn vì đã xuất hiện trong cuộc sống của tôi.
-        </p>
-
-        <p>
-            Dù cuộc sống có những ngày không như ý,
-            bạn cũng đừng quên rằng mình không cần
-            phải lúc nào cũng tỏ ra mạnh mẽ.
-        </p>
-
-        <p>
-            Buồn thì cứ nghỉ ngơi một chút,
-            mệt thì hãy dành thời gian cho bản thân.
-            Bạn không cần phải vui vẻ mọi lúc đâu.
-        </p>
-
-        <p>
-            Mong bạn luôn gặp được những điều tốt đẹp,
-            có thật nhiều tiếng cười và luôn là chính mình!
-        </p>
-
-        <h2>Tôi luôn trân trọng tình bạn này! ❤️</h2>
-    </div>
-
-    <footer>
-        Made with ❤️ dành riêng cho bạn thân
-        <br><br>
-        From: Người bạn luôn quý mến bạn 🌸
-    </footer>
-
-</div>
+    <p id="message"></p>
 </div>
 
-<!-- JAVASCRIPT BẮT ĐẦU -->
 <script>
-
-// DANH SÁCH LỜI CHÚC
-let ds = [
-    "Bạn không cần hoàn hảo để trở nên tuyệt vời! 💗",
-    "Ngày mai luôn là một cơ hội mới. 🌷",
-    "Đừng quên dành thời gian chăm sóc bản thân nhé! 💕",
-    "Bạn quan trọng hơn những gì bạn nghĩ đấy! ❤️",
-    "Cứ đi từng bước nhỏ, không cần phải vội vàng. ✨",
-    "Mong hôm nay bạn tìm được một lý do để mỉm cười! 🌸",
-    "Dù có chuyện gì, bạn vẫn xứng đáng được yêu thương!"
-];
-
-// HIỆN LỜI CHÚC NGẪU NHIÊN
-function loiChuc() {
-    let x = Math.floor(Math.random() * ds.length);
-
-    document.getElementById("noidung").innerHTML = ds[x];
-
-    document.getElementById("loichuc").style.display = "block";
+function showMessage() {
+    document.getElementById("message").innerHTML =
+    "Luôn vui vẻ nhé! Có tôi là bạn thân của bạn đây! 💗🌷";
 }
 
-// MỞ VÀ ĐÓNG HỘP THƯ
-function moThu() {
-    let x = document.getElementById("hopthu");
-
-    if (x.style.display === "block") {
-        x.style.display = "none";
-    } else {
-        x.style.display = "block";
-    }
-}
-
-// TẠO HOA VÀ TRÁI TIM RƠI
-function taoHoa() {
-    let hoa = document.createElement("div");
-
-    hoa.className = "flower";
-
-    let dsHoa = ["💗", "🌸", "🌷", "💕", "✨", "🌹"];
-
-    hoa.innerHTML = dsHoa[
-        Math.floor(Math.random() * dsHoa.length)
+function createHeart() {
+    let heart = document.createElement("div");
+    heart.className = "floating";
+    heart.innerHTML = ["❤️","💕","💗","🌸","✨"][
+        Math.floor(Math.random() * 5)
     ];
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (4 + Math.random()*4) + "s";
+    document.body.appendChild(heart);
 
-    hoa.style.left = Math.random() * 100 + "vw";
-
-    hoa.style.fontSize =
-        (15 + Math.random() * 25) + "px";
-
-    hoa.style.animationDuration =
-        (4 + Math.random() * 5) + "s";
-
-    document.body.appendChild(hoa);
-
-    setTimeout(function() {
-        hoa.remove();
-    }, 9000);
+    setTimeout(() => heart.remove(), 8000);
 }
 
-setInterval(taoHoa, 350);
-
-// TẠO SAO LUNG LINH
-for (let i = 0; i < 40; i++) {
-    let sao = document.createElement("div");
-
-    sao.className = "stars";
-
-    sao.style.left = Math.random() * 100 + "vw";
-
-    sao.style.top = Math.random() * 100 + "vh";
-
-    sao.style.animationDelay =
-        Math.random() * 3 + "s";
-
-    document.body.appendChild(sao);
-}
-
+setInterval(createHeart, 400);
 </script>
-<!-- JAVASCRIPT KẾT THÚC -->
 
 </body>
 </html>
