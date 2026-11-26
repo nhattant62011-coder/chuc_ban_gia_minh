@@ -4,125 +4,272 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gửi Bạn Thân ❤️</title>
+<title>Forever Best Friends 💗</title>
+
 <style>
-body {
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg,#ffc1dc,#d9c2ff,#bde9ff);
     min-height: 100vh;
-    display: flex;
+    overflow-x: hidden;
+    color: #fff;
+}
+
+.page {
+    display: none;
+    min-height: 100vh;
+    padding: 35px 20px 100px;
     justify-content: center;
     align-items: center;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #ffb6d9, #c9a7ff);
-    overflow: hidden;
+    flex-direction: column;
     text-align: center;
+    animation: appear 1s;
+}
+
+.page.active {
+    display: flex;
+}
+
+@keyframes appear {
+    from {opacity:0; transform:translateY(30px);}
+    to {opacity:1; transform:translateY(0);}
 }
 
 .card {
-    background: white;
+    background: rgba(255,255,255,.25);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255,255,255,.5);
+    border-radius: 30px;
     padding: 35px 25px;
-    border-radius: 25px;
-    width: 320px;
-    box-shadow: 0 10px 30px #a45a9b55;
-    z-index: 2;
+    width: min(90%,500px);
+    box-shadow: 0 10px 40px #9b5aa855;
 }
 
 h1 {
-    color: #ff4f9a;
+    font-size: clamp(30px,7vw,48px);
+    margin-bottom: 20px;
+    text-shadow: 2px 3px 10px #b85b9b;
+}
+
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
 }
 
 p {
-    color: #75506c;
-    font-size: 18px;
-    line-height: 1.7;
+    font-size: 19px;
+    line-height: 1.9;
+    margin: 15px 0;
 }
 
 .heart {
-    font-size: 55px;
+    font-size: 75px;
     animation: beat 1s infinite;
 }
 
+@keyframes beat {
+    50% {transform:scale(1.25);}
+}
+
 button {
-    background: #ff69a6;
-    color: white;
     border: none;
-    padding: 13px 22px;
-    border-radius: 30px;
+    background: linear-gradient(45deg,#ff5fa2,#ba79ff);
+    color: white;
+    padding: 14px 25px;
+    margin: 10px;
+    border-radius: 40px;
     font-size: 17px;
     cursor: pointer;
+    box-shadow: 0 5px 20px #a24b9c66;
+    transition: .3s;
 }
 
 button:hover {
-    background: #e83c86;
+    transform: scale(1.1);
+    filter: brightness(1.1);
 }
 
-#message {
-    color: #e83c86;
-    font-weight: bold;
+.nav {
+    position: fixed;
+    bottom: 15px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
 }
 
 .floating {
-    position: absolute;
-    bottom: -30px;
-    animation: fly 6s linear infinite;
-    font-size: 25px;
+    position: fixed;
+    top: -30px;
+    pointer-events: none;
+    animation: fall linear forwards;
+    z-index: 1;
 }
 
-@keyframes beat {
-    50% { transform: scale(1.2); }
-}
-
-@keyframes fly {
+@keyframes fall {
     to {
-        transform: translateY(-110vh) rotate(360deg);
+        transform: translateY(110vh) rotate(720deg);
         opacity: 0;
     }
 }
+
+.glow {
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from {text-shadow:0 0 5px white;}
+    to {text-shadow:0 0 25px #ff3fbd,0 0 40px white;}
+}
+
+.gift {
+    font-size: 100px;
+    cursor: pointer;
+    animation: shake 1s infinite;
+}
+
+@keyframes shake {
+    0%,100% {transform:rotate(0);}
+    25% {transform:rotate(-10deg);}
+    75% {transform:rotate(10deg);}
+}
+
+.hidden {
+    display:none;
+}
+
+#giftText {
+    font-size: 23px;
+    color: #fff;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
 </style>
 </head>
 
 <body>
 
+<!-- TRANG 1 -->
+<section class="page active" id="p1">
 <div class="card">
-    <div class="heart">❤️</div>
-
-    <h1>Gửi bạn thân của tôi!</h1>
-
+    <div class="heart">💗</div>
+    <h1 class="glow">Hello Best Friend!</h1>
     <p>
-        Này người bạn đặc biệt! 🥰<br>
-        Mong bạn luôn vui vẻ,<br>
-        luôn mỉm cười mỗi ngày.<br>
-        Đừng buồn vì những chuyện không vui nhé!<br>
-        Bạn xứng đáng với những điều tốt đẹp nhất.
+        Có một món quà nhỏ dành cho cậu.<br>
+        Hãy cùng tớ khám phá nhé! 🌷
     </p>
+    <button onclick="go(2)">Bắt đầu nào 💕</button>
+</div>
+</section>
 
-    <button onclick="showMessage()">
-        Nhấn vào đây nhé 💌
-    </button>
+<!-- TRANG 2 -->
+<section class="page" id="p2">
+<div class="card">
+    <h1>🌸 Gửi cậu 🌸</h1>
+    <p>
+        Chúc cậu mỗi ngày đều thật vui vẻ.<br>
+        Luôn gặp nhiều may mắn.<br>
+        Luôn có những người yêu thương bên cạnh.<br>
+        Và đừng để những chuyện buồn làm mất đi nụ cười nhé!
+    </p>
+    <div class="heart">🥰</div>
+    <button onclick="go(3)">Tiếp theo 💗</button>
+</div>
+</section>
 
-    <p id="message"></p>
+<!-- TRANG 3 -->
+<section class="page" id="p3">
+<div class="card">
+    <h1>💌 Khi cậu buồn...</h1>
+    <p>
+        Không sao đâu, ai cũng có những ngày không vui.<br>
+        Cậu không cần phải lúc nào cũng mạnh mẽ.<br>
+        Hãy nghỉ ngơi và cho mình thời gian nhé.<br>
+        Những ngày tươi đẹp vẫn đang chờ cậu! 🌈
+    </p>
+    <button onclick="go(4)">Có quà cho cậu 🎁</button>
+</div>
+</section>
+
+<!-- TRANG 4 -->
+<section class="page" id="p4">
+<div class="card">
+    <h1>🎁 Hộp quà bí mật</h1>
+    <p>Nhấn vào hộp quà để khám phá nhé!</p>
+    <div class="gift" onclick="openGift()">🎁</div>
+    <div id="giftText" class="hidden">
+        Bất ngờ chưa! 💖<br>
+        Món quà lớn nhất là tình bạn của chúng ta! 🌷
+    </div>
+    <button onclick="go(5)">Trang cuối ✨</button>
+</div>
+</section>
+
+<!-- TRANG 5 -->
+<section class="page" id="p5">
+<div class="card">
+    <div class="heart">💞</div>
+    <h1 class="glow">Forever Friends</h1>
+    <p>
+        Cảm ơn vì đã xuất hiện trong cuộc sống của tớ.<br>
+        Mong cậu luôn bình an, hạnh phúc.<br>
+        Cười thật nhiều và đừng buồn nữa nhé!<br>
+        <b>Mãi là bạn thân nha! ❤️</b>
+    </p>
+    <button onclick="go(1)">Xem lại từ đầu 🔄</button>
+</div>
+</section>
+
+<div class="nav">
+    <button onclick="prev()">⬅️</button>
+    <button onclick="next()">➡️</button>
 </div>
 
 <script>
-function showMessage() {
-    document.getElementById("message").innerHTML =
-    "Luôn vui vẻ nhé! Có tôi là bạn thân của bạn đây! 💗🌷";
+let current = 1;
+
+function go(n) {
+    document.getElementById("p"+current).classList.remove("active");
+    current = n;
+    document.getElementById("p"+current).classList.add("active");
 }
 
-function createHeart() {
-    let heart = document.createElement("div");
-    heart.className = "floating";
-    heart.innerHTML = ["❤️","💕","💗","🌸","✨"][
-        Math.floor(Math.random() * 5)
+function next() {
+    go(current === 5 ? 1 : current + 1);
+}
+
+function prev() {
+    go(current === 1 ? 5 : current - 1);
+}
+
+function openGift() {
+    document.getElementById("giftText").classList.remove("hidden");
+    for(let i=0;i<30;i++) {
+        setTimeout(createEffect,i*50);
+    }
+}
+
+function createEffect() {
+    let e = document.createElement("div");
+    e.className = "floating";
+    e.innerHTML = ["💗","💕","✨","🌸","💖","🎉"][
+        Math.floor(Math.random()*6)
     ];
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (4 + Math.random()*4) + "s";
-    document.body.appendChild(heart);
-
-    setTimeout(() => heart.remove(), 8000);
+    e.style.left = Math.random()*100+"vw";
+    e.style.fontSize = (20+Math.random()*25)+"px";
+    e.style.animationDuration = (3+Math.random()*4)+"s";
+    document.body.appendChild(e);
+    setTimeout(()=>e.remove(),7000);
 }
 
-setInterval(createHeart, 400);
+setInterval(createEffect,250);
 </script>
 
 </body>
