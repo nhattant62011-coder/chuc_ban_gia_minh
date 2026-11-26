@@ -1,0 +1,326 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gửi Bạn Thân 💗</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    background: linear-gradient(-45deg,
+        #ff9acb, #c084fc, #818cf8, #f9a8d4);
+    background-size: 400% 400%;
+    animation: nen 12s ease infinite;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+@keyframes nen {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 15px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.content {
+    max-width: 700px;
+    width: 100%;
+    padding: 40px 25px;
+    border-radius: 30px;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255,255,255,0.5);
+    box-shadow: 0 0 40px rgba(255,255,255,0.3);
+    animation: hien 1.5s ease;
+}
+
+@keyframes hien {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.heart {
+    font-size: 65px;
+    animation: tim 1.2s infinite alternate;
+}
+
+@keyframes tim {
+    to {transform: scale(1.2);}
+}
+
+h1 {
+    font-size: clamp(35px, 7vw, 60px);
+    margin: 20px 0;
+    text-shadow: 0 0 20px #ff4da6;
+}
+
+h2 {
+    margin: 20px 0;
+    color: #fff0f8;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin: 15px 0;
+}
+
+button {
+    padding: 14px 25px;
+    margin: 10px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #ff4da6, #a855f7);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 20px #ff80bf;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 35px white;
+}
+
+.message {
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.2);
+    display: none;
+    animation: hien 0.8s ease;
+}
+
+.flower {
+    position: fixed;
+    top: -40px;
+    pointer-events: none;
+    z-index: 1;
+    animation: roi linear forwards;
+}
+
+@keyframes roi {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+.stars {
+    position: fixed;
+    width: 5px;
+    height: 5px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 12px white;
+    animation: chop 2s infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes chop {
+    from {opacity: 0.2; transform: scale(0.5);}
+    to {opacity: 1; transform: scale(1.5);}
+}
+
+footer {
+    margin-top: 30px;
+    font-size: 15px;
+    color: white;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="content">
+
+    <div class="heart">💗</div>
+
+    <h1>HEY, BEST FRIEND!</h1>
+
+    <h2>Gửi người bạn thân đáng quý của tôi 🌷</h2>
+
+    <p>
+        Có thể hôm nay không phải là một ngày hoàn hảo,
+        nhưng mong rằng ngày mai sẽ mang đến cho bạn
+        thật nhiều điều tốt đẹp.
+    </p>
+
+    <p>
+        Hãy luôn mỉm cười nhé!
+        Bạn xứng đáng nhận được những điều tử tế,
+        những niềm vui và thật nhiều yêu thương.
+    </p>
+
+    <button onclick="loiChuc()">
+        💌 Một lời nhắn dành cho bạn
+    </button>
+
+    <button onclick="moThu()">
+        🎁 Mở món quà bí mật
+    </button>
+
+    <div class="message" id="loichuc">
+        <h2>💖 Một chút động lực</h2>
+        <p id="noidung"></p>
+    </div>
+
+    <div class="message" id="hopthu">
+        <h2>💌 Gửi bạn thân!</h2>
+
+        <p>
+            Cảm ơn vì đã xuất hiện trong cuộc sống của tôi.
+        </p>
+
+        <p>
+            Dù cuộc sống có những ngày không như ý,
+            bạn cũng đừng quên rằng mình không cần
+            phải lúc nào cũng tỏ ra mạnh mẽ.
+        </p>
+
+        <p>
+            Buồn thì cứ nghỉ ngơi một chút,
+            mệt thì hãy dành thời gian cho bản thân.
+            Rồi từng ngày, mọi thứ sẽ dần tốt hơn.
+        </p>
+
+        <p>
+            Mong bạn luôn gặp được những điều tốt đẹp,
+            có thật nhiều tiếng cười và luôn là chính mình!
+        </p>
+
+        <h2>Tôi luôn trân trọng tình bạn này! ❤️</h2>
+    </div>
+
+    <button onclick="batNhac()">
+        🎵 Bật / Tắt nhạc
+    </button>
+
+    <footer>
+        Made with ❤️ dành riêng cho bạn thân
+        <br><br>
+        From: Người bạn luôn quý mến bạn 🌸
+    </footer>
+
+</div>
+</div>
+
+<audio id="nhac" loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+// LỜI NHẮN NGẪU NHIÊN
+let ds = [
+    "Bạn không cần hoàn hảo để trở nên tuyệt vời! 💗",
+    "Ngày mai luôn là một cơ hội mới. 🌷",
+    "Đừng quên dành thời gian chăm sóc bản thân nhé! 💕",
+    "Bạn quan trọng hơn những gì bạn nghĩ đấy! ❤️",
+    "Cứ đi từng bước nhỏ, không cần phải vội vàng. ✨",
+    "Mong hôm nay bạn tìm được một lý do để mỉm cười! 🌸",
+    "Dù có chuyện gì, bạn vẫn xứng đáng được yêu thương!"
+];
+
+function loiChuc() {
+    let x = Math.floor(Math.random() * ds.length);
+
+    document.getElementById("noidung").innerHTML = ds[x];
+
+    document.getElementById("loichuc").style.display = "block";
+}
+
+// MỞ QUÀ
+function moThu() {
+    let x = document.getElementById("hopthu");
+
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+}
+
+// NHẠC
+let dangPhat = false;
+
+function batNhac() {
+    let nhac = document.getElementById("nhac");
+
+    if (dangPhat) {
+        nhac.pause();
+        dangPhat = false;
+    } else {
+        nhac.play();
+        dangPhat = true;
+    }
+}
+
+// HOA VÀ TRÁI TIM RƠI
+function taoHoa() {
+    let hoa = document.createElement("div");
+
+    hoa.className = "flower";
+
+    let dsHoa = ["💗", "🌸", "🌷", "💕", "✨", "🌹"];
+
+    hoa.innerHTML =
+        dsHoa[Math.floor(Math.random() * dsHoa.length)];
+
+    hoa.style.left = Math.random() * 100 + "vw";
+    hoa.style.fontSize = (15 + Math.random() * 25) + "px";
+    hoa.style.animationDuration = (4 + Math.random() * 5) + "s";
+
+    document.body.appendChild(hoa);
+
+    setTimeout(() => hoa.remove(), 9000);
+}
+
+setInterval(taoHoa, 350);
+
+// SAO LUNG LINH
+for (let i = 0; i < 40; i++) {
+    let sao = document.createElement("div");
+
+    sao.className = "stars";
+    sao.style.left = Math.random() * 100 + "vw";
+    sao.style.top = Math.random() * 100 + "vh";
+    sao.style.animationDelay = Math.random() * 3 + "s";
+
+    document.body.appendChild(sao);
+}
+
+</script>
+
+</body>
+</html>
