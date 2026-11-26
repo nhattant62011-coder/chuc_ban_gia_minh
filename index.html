@@ -4,151 +4,188 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Forever Best Friends 💗</title>
+<title>Gửi Bạn Thân 💗</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600;700&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:'Quicksand',sans-serif;
+  min-height:100vh;
+  color:white;
+  background:linear-gradient(-45deg,#ff9ecb,#c9a7ff,#9edcff,#ffc2d9);
+  background-size:400% 400%;
+  animation:bg 12s ease infinite;
+  overflow-x:hidden;
 }
 
-body {
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg,#ffc1dc,#d9c2ff,#bde9ff);
-    min-height: 100vh;
-    overflow-x: hidden;
-    color: #fff;
+@keyframes bg{
+  0%,100%{background-position:0% 50%}
+  50%{background-position:100% 50%}
 }
 
-.page {
-    display: none;
-    min-height: 100vh;
-    padding: 35px 20px 100px;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-    animation: appear 1s;
+.page{
+  display:none;
+  min-height:100vh;
+  padding:90px 18px 120px;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
 }
 
-.page.active {
-    display: flex;
+.page.active{
+  display:flex;
+  animation:enter 1s ease;
 }
 
-@keyframes appear {
-    from {opacity:0; transform:translateY(30px);}
-    to {opacity:1; transform:translateY(0);}
+@keyframes enter{
+  from{opacity:0;transform:translateY(35px) scale(.96)}
+  to{opacity:1;transform:translateY(0) scale(1)}
 }
 
-.card {
-    background: rgba(255,255,255,.25);
-    backdrop-filter: blur(15px);
-    border: 2px solid rgba(255,255,255,.5);
-    border-radius: 30px;
-    padding: 35px 25px;
-    width: min(90%,500px);
-    box-shadow: 0 10px 40px #9b5aa855;
+.card{
+  width:min(95%,600px);
+  padding:35px 25px;
+  border:1px solid #ffffff99;
+  border-radius:30px;
+  background:#ffffff27;
+  backdrop-filter:blur(18px);
+  box-shadow:0 15px 50px #824a9c44;
 }
 
-h1 {
-    font-size: clamp(30px,7vw,48px);
-    margin-bottom: 20px;
-    text-shadow: 2px 3px 10px #b85b9b;
+h1{
+  font-family:'Pacifico',cursive;
+  font-size:clamp(32px,8vw,52px);
+  color:#fff;
+  text-shadow:0 0 15px #ff5fbd,0 0 35px #fff;
+  margin:15px 0;
 }
 
-h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
+h2{
+  font-family:'Pacifico',cursive;
+  font-size:30px;
+  margin:15px;
 }
 
-p {
-    font-size: 19px;
-    line-height: 1.9;
-    margin: 15px 0;
+p{
+  font-size:18px;
+  line-height:2;
+  margin:15px 0;
 }
 
-.heart {
-    font-size: 75px;
-    animation: beat 1s infinite;
+.big-heart{
+  font-size:85px;
+  animation:heartbeat 1.2s infinite;
+  filter:drop-shadow(0 0 15px #ff4eab);
 }
 
-@keyframes beat {
-    50% {transform:scale(1.25);}
+@keyframes heartbeat{
+  50%{transform:scale(1.25)}
 }
 
-button {
-    border: none;
-    background: linear-gradient(45deg,#ff5fa2,#ba79ff);
-    color: white;
-    padding: 14px 25px;
-    margin: 10px;
-    border-radius: 40px;
-    font-size: 17px;
-    cursor: pointer;
-    box-shadow: 0 5px 20px #a24b9c66;
-    transition: .3s;
+button{
+  border:1px solid #fff9;
+  padding:13px 23px;
+  border-radius:35px;
+  margin:8px;
+  color:white;
+  background:linear-gradient(45deg,#ff65a7,#b47cff);
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 5px 20px #a84f9b66;
+  transition:.3s;
 }
 
-button:hover {
-    transform: scale(1.1);
-    filter: brightness(1.1);
+button:hover{
+  transform:translateY(-5px) scale(1.05);
+  box-shadow:0 10px 30px #ff75c9;
 }
 
-.nav {
-    position: fixed;
-    bottom: 15px;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    z-index: 10;
+.petal,.sparkle,.confetti{
+  position:fixed;
+  top:-30px;
+  pointer-events:none;
+  z-index:0;
+  animation:fall linear forwards;
 }
 
-.floating {
-    position: fixed;
-    top: -30px;
-    pointer-events: none;
-    animation: fall linear forwards;
-    z-index: 1;
+@keyframes fall{
+  to{
+    transform:translateY(110vh) rotate(720deg);
+    opacity:0;
+  }
 }
 
-@keyframes fall {
-    to {
-        transform: translateY(110vh) rotate(720deg);
-        opacity: 0;
-    }
+.nav{
+  position:fixed;
+  bottom:15px;
+  left:0;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  z-index:20;
 }
 
-.glow {
-    animation: glow 2s infinite alternate;
+.nav button{padding:10px 16px}
+
+.progress{
+  position:fixed;
+  top:0;
+  left:0;
+  height:5px;
+  background:white;
+  box-shadow:0 0 15px white;
+  z-index:30;
+  transition:width .5s;
 }
 
-@keyframes glow {
-    from {text-shadow:0 0 5px white;}
-    to {text-shadow:0 0 25px #ff3fbd,0 0 40px white;}
+.envelope{
+  font-size:110px;
+  cursor:pointer;
+  animation:shake 2s infinite;
 }
 
-.gift {
-    font-size: 100px;
-    cursor: pointer;
-    animation: shake 1s infinite;
+@keyframes shake{
+  0%,100%{transform:rotate(0)}
+  25%{transform:rotate(-8deg)}
+  75%{transform:rotate(8deg)}
 }
 
-@keyframes shake {
-    0%,100% {transform:rotate(0);}
-    25% {transform:rotate(-10deg);}
-    75% {transform:rotate(10deg);}
+.message{
+  display:none;
+  padding:20px;
+  background:#ffffff35;
+  border-radius:20px;
+  animation:enter 1s;
 }
 
-.hidden {
-    display:none;
+.message.show{display:block}
+
+.gift{
+  font-size:110px;
+  cursor:pointer;
+  animation:heartbeat 1s infinite;
 }
 
-#giftText {
-    font-size: 23px;
-    color: #fff;
-    font-weight: bold;
-    margin-top: 20px;
+.photo{
+  font-size:60px;
+  margin:12px;
+  display:inline-block;
+  animation:float 3s infinite ease-in-out;
+}
+
+@keyframes float{
+  50%{transform:translateY(-15px) rotate(8deg)}
+}
+
+footer{
+  margin-top:25px;
+  opacity:.9;
+  font-size:14px;
 }
 
 </style>
@@ -156,120 +193,170 @@ button:hover {
 
 <body>
 
+<div class="progress" id="progress"></div>
+
 <!-- TRANG 1 -->
 <section class="page active" id="p1">
 <div class="card">
-    <div class="heart">💗</div>
-    <h1 class="glow">Hello Best Friend!</h1>
-    <p>
-        Có một món quà nhỏ dành cho cậu.<br>
-        Hãy cùng tớ khám phá nhé! 🌷
-    </p>
-    <button onclick="go(2)">Bắt đầu nào 💕</button>
+  <div class="big-heart">💗</div>
+  <h1>Dear My Best Friend</h1>
+  <p>
+    ✨ Có một món quà đặc biệt dành cho cậu ✨<br>
+    Một chút yêu thương, một chút ngọt ngào<br>
+    Và rất nhiều tình cảm của tớ!
+  </p>
+  <button onclick="go(2)">Mở món quà 💌</button>
+  <footer>🌷 A little gift for you 🌷</footer>
 </div>
 </section>
 
 <!-- TRANG 2 -->
 <section class="page" id="p2">
 <div class="card">
-    <h1>🌸 Gửi cậu 🌸</h1>
-    <p>
-        Chúc cậu mỗi ngày đều thật vui vẻ.<br>
-        Luôn gặp nhiều may mắn.<br>
-        Luôn có những người yêu thương bên cạnh.<br>
-        Và đừng để những chuyện buồn làm mất đi nụ cười nhé!
-    </p>
-    <div class="heart">🥰</div>
-    <button onclick="go(3)">Tiếp theo 💗</button>
+  <h1>🌸 Gửi người bạn đặc biệt 🌸</h1>
+  <div class="photo">🧸 💕 🧸</div>
+  <p>
+    Cậu biết không?<br>
+    Có những người xuất hiện trong cuộc sống<br>
+    và khiến mọi thứ trở nên tốt đẹp hơn.<br>
+    Với tớ, cậu là một người như thế! 💗
+  </p>
+  <button onclick="go(3)">Đọc tiếp nhé 🌷</button>
 </div>
 </section>
 
 <!-- TRANG 3 -->
 <section class="page" id="p3">
 <div class="card">
-    <h1>💌 Khi cậu buồn...</h1>
+  <h1>💌 Một lời nhắn nhỏ</h1>
+  <div class="envelope" onclick="openLetter()">💌</div>
+  <p>Nhấn vào phong thư để mở nhé!</p>
+
+  <div class="message" id="letter">
+    <h2>Gửi cậu ❤️</h2>
     <p>
-        Không sao đâu, ai cũng có những ngày không vui.<br>
-        Cậu không cần phải lúc nào cũng mạnh mẽ.<br>
-        Hãy nghỉ ngơi và cho mình thời gian nhé.<br>
-        Những ngày tươi đẹp vẫn đang chờ cậu! 🌈
+      Mong cậu luôn vui vẻ.<br>
+      Đừng để những chuyện không vui<br>
+      làm cậu quên mất giá trị của mình.<br>
+      Hãy luôn tin vào bản thân.<br>
+      Những điều tốt đẹp đang chờ cậu! 🌈
     </p>
-    <button onclick="go(4)">Có quà cho cậu 🎁</button>
+  </div>
+  <button onclick="go(4)">Tiếp tục 💕</button>
 </div>
 </section>
 
 <!-- TRANG 4 -->
 <section class="page" id="p4">
 <div class="card">
-    <h1>🎁 Hộp quà bí mật</h1>
-    <p>Nhấn vào hộp quà để khám phá nhé!</p>
-    <div class="gift" onclick="openGift()">🎁</div>
-    <div id="giftText" class="hidden">
-        Bất ngờ chưa! 💖<br>
-        Món quà lớn nhất là tình bạn của chúng ta! 🌷
-    </div>
-    <button onclick="go(5)">Trang cuối ✨</button>
+  <h1>🎁 Quà bí mật</h1>
+  <p>Cậu có muốn mở món quà này không?</p>
+  <div class="gift" onclick="openGift()">🎁</div>
+  <div class="message" id="giftText">
+    <h2>Surprise!!! 💖</h2>
+    <p>
+      Món quà của tớ chính là:<br>
+      Một tình bạn thật đẹp!<br>
+      Chúc cậu luôn hạnh phúc,<br>
+      bình an và gặp thật nhiều may mắn! 🌸
+    </p>
+  </div>
+  <button onclick="go(5)">Đi tiếp nào ✨</button>
 </div>
 </section>
 
 <!-- TRANG 5 -->
 <section class="page" id="p5">
 <div class="card">
-    <div class="heart">💞</div>
-    <h1 class="glow">Forever Friends</h1>
-    <p>
-        Cảm ơn vì đã xuất hiện trong cuộc sống của tớ.<br>
-        Mong cậu luôn bình an, hạnh phúc.<br>
-        Cười thật nhiều và đừng buồn nữa nhé!<br>
-        <b>Mãi là bạn thân nha! ❤️</b>
-    </p>
-    <button onclick="go(1)">Xem lại từ đầu 🔄</button>
+  <h1>🌈 Điều tớ mong muốn</h1>
+  <div class="photo">🌷 🌻 🌹</div>
+  <p>
+    Mong cậu có thật nhiều niềm vui.<br>
+    Mong những ước mơ của cậu thành hiện thực.<br>
+    Mong mỗi ngày đều có lý do để mỉm cười.<br>
+    Và mong cậu luôn được yêu thương! 💗
+  </p>
+  <div class="photo">🦋 ✨ 💝</div>
+  <button onclick="go(6)">Lời cuối cùng 💌</button>
+</div>
+</section>
+
+<!-- TRANG 6 -->
+<section class="page" id="p6">
+<div class="card">
+  <div class="big-heart">💖</div>
+  <h1>Forever Best Friends</h1>
+  <p>
+    Cảm ơn cậu vì đã là một người bạn tuyệt vời.<br>
+    Không cần mọi ngày đều hoàn hảo.<br>
+    Chỉ mong cậu luôn bình an và hạnh phúc.<br>
+    Hãy cười thật nhiều nhé!
+  </p>
+  <h2>LOVE YOU, BESTIE! 💗</h2>
+  <button onclick="fireworks()">🎆 Bắn pháo hoa</button>
+  <button onclick="go(1)">Xem lại từ đầu 🔄</button>
+  <footer>Made with ❤️ just for you</footer>
 </div>
 </section>
 
 <div class="nav">
-    <button onclick="prev()">⬅️</button>
-    <button onclick="next()">➡️</button>
+  <button onclick="prev()">❮</button>
+  <button onclick="next()">❯</button>
 </div>
 
 <script>
-let current = 1;
+let current=1;
+const total=6;
 
-function go(n) {
-    document.getElementById("p"+current).classList.remove("active");
-    current = n;
-    document.getElementById("p"+current).classList.add("active");
+function go(n){
+  document.getElementById("p"+current).classList.remove("active");
+  current=n;
+  document.getElementById("p"+current).classList.add("active");
+  document.getElementById("progress").style.width=
+    (current/total*100)+"%";
+  window.scrollTo({top:0,behavior:"smooth"});
+  burst(12);
 }
 
-function next() {
-    go(current === 5 ? 1 : current + 1);
+function next(){go(current===total?1:current+1)}
+function prev(){go(current===1?total:current-1)}
+
+function openLetter(){
+  document.getElementById("letter").classList.add("show");
+  burst(35);
 }
 
-function prev() {
-    go(current === 1 ? 5 : current - 1);
+function openGift(){
+  document.getElementById("giftText").classList.add("show");
+  burst(50);
 }
 
-function openGift() {
-    document.getElementById("giftText").classList.remove("hidden");
-    for(let i=0;i<30;i++) {
-        setTimeout(createEffect,i*50);
-    }
+function createParticle(){
+  const items=["🌸","💗","💕","✨","🌷","🦋","⭐"];
+  let e=document.createElement("div");
+  e.className=Math.random()>.5?"petal":"sparkle";
+  e.textContent=items[Math.floor(Math.random()*items.length)];
+  e.style.left=Math.random()*100+"vw";
+  e.style.fontSize=(15+Math.random()*25)+"px";
+  e.style.animationDuration=(4+Math.random()*6)+"s";
+  document.body.appendChild(e);
+  setTimeout(()=>e.remove(),10000);
 }
 
-function createEffect() {
-    let e = document.createElement("div");
-    e.className = "floating";
-    e.innerHTML = ["💗","💕","✨","🌸","💖","🎉"][
-        Math.floor(Math.random()*6)
-    ];
-    e.style.left = Math.random()*100+"vw";
-    e.style.fontSize = (20+Math.random()*25)+"px";
-    e.style.animationDuration = (3+Math.random()*4)+"s";
-    document.body.appendChild(e);
-    setTimeout(()=>e.remove(),7000);
+function burst(amount){
+  for(let i=0;i<amount;i++){
+    setTimeout(createParticle,i*25);
+  }
 }
 
-setInterval(createEffect,250);
+setInterval(createParticle,250);
+
+function fireworks(){
+  burst(120);
+  alert("Chúc cậu luôn vui vẻ và hạnh phúc nhé! 💗");
+}
+
+document.getElementById("progress").style.width=(100/total)+"%";
 </script>
 
 </body>
